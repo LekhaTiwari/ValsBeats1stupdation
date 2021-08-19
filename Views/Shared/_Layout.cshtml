@@ -34,14 +34,13 @@
                             </li>
 
                         </ul>
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                         </form>
-                        <div class="text-end">
-
-                            <button type="button" class="btn btn-outline-light me-2" asp-area="" asp-controller="Home" asp-action="SignUp">Sign Up</button>
-                            <button type="button" class="btn btn-warning" asp-area="" onclick="window.location.href='http://localhost:55537/Home/Login';">  Login </button>
-
+                        <div class="mx-2">
+                            <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="Login">Login</a>
+                            <a class="btn btn-danger" asp-area="" asp-controller="Home" asp-action="SignUp">SignUp</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +63,89 @@
         </nav>
 
     </header>
-    
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">
+                                We'll never share your email with anyone
+                                else.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Sign Up Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Sign up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp">
+                            <small id="emailHelp" class="form-text text-muted">
+                                We'll never share your email with anyone
+                                else.
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="cexampleInputPassword1">Confirm Password</label>
+                            <input type="password" class="form-control" id="cexampleInputPassword1">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Creat Account</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Login</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <style>
         .cards-wrapper {
             display: flex;
@@ -167,7 +248,7 @@
             color: white;
         }
 
-        .fa-linkedin {
+        .fa-instagram {
             background: #007bb5;
             color: white;
         }
@@ -280,7 +361,7 @@
 
             <ul class="nav justify-content-center pb-3 mb-3 font-weight-bold">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact Us</a></li>
+                <li class="nav-item"><a asp-area="" asp-controller="Home" asp-action="Contact" class="nav-link px-2 text-muted">Contact Us</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Partnership</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Terms and Conditions</a></li>
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Privacy Policy</a></li>
@@ -336,7 +417,7 @@
                 <a href="#" target="_blank" class="fa fa-facebook"></a>
                 <a href="#" target="_blank" class="fa fa-twitter"></a>
                 <a href="#" target="_blank" class="fa fa-google"></a>
-                <a href="#" target="_blank" class="fa fa-linkedin"></a>
+                <a href="#" target="_blank" class="fa fa-instagram"></a>
 
                 <div class="text-left">
                     <span class="text-muted my-lg-5">&copy; 2021, VALSBEATS</span>
